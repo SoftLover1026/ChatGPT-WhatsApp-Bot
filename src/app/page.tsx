@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const NewsAPIKey = '59a46722351e450ca6d7b627bb000534';
 const NewsAPIEndpoint = 'https://newsapi.org/v2/top-headlines';
@@ -21,10 +22,7 @@ export default function Home(): JSX.Element {
   const [page, setPage] = useState<number>(1);
 
   async function getArticles(): Promise<void> {
-    const res = await fetch(
-      `${NewsAPIEndpoint}?country=us&page=${page}&apiKey=${NewsAPIKey}`
-    );
-    const data: NewsApiResponse = await res.json();
+    const { data } = await axios.get(`${NewsAPIEndpoint}?country=us&page=${page}&apiKey=${NewsAPIKey}`);
     setArticles((prevArticles) => [...prevArticles, ...data.articles]);
     setPage((prevPage) => prevPage + 1);
   }
@@ -38,7 +36,6 @@ export default function Home(): JSX.Element {
   }, []);
 
   function handleScroll(): void {
-    console.log('aa')
     if (
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
@@ -51,7 +48,7 @@ export default function Home(): JSX.Element {
     <div>
       <ul>
         {articles.map((article) => (
-          <li key={article.title}>{article.title}</li>
+          <li className='mb-4' key={article.title}>{article.title}</li>
         ))}
       </ul>
     </div>
