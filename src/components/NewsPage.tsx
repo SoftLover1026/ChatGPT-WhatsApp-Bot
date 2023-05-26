@@ -13,14 +13,20 @@ export default function NewsPageComp(): JSX.Element {
     
     const NewsAPIKey = process.env.NewsAPIKey;
     const NewsAPIEndpoint = process.env.NewsAPIEndpoint;
+    const TopNewsAPIEndpoint = process.env.TopNewsAPIEndpoint;
     
     const articles = useStoreState((state) => state.articles.articles);
     const addArticle = useStoreActions((actions) => actions.articles.addArticle);
 
 
     async function getArticles(): Promise<void> {
-
-        const { data } = await axios.get(`${NewsAPIEndpoint}?q=${searchKeyword}&page=${page}&pageSize=${PAGE_SIZE}&apiKey=${NewsAPIKey}`);
+        let res;
+        if (searchKeyword === '') {
+          res = await axios.get(`${TopNewsAPIEndpoint}?page=${page}&pageSize=${PAGE_SIZE}&apiKey=${NewsAPIKey}`);
+        } else {
+          res = await axios.get(`${NewsAPIEndpoint}?q=${searchKeyword}&page=${page}&pageSize=${PAGE_SIZE}&apiKey=${NewsAPIKey}`);
+        }
+        
         // const data = {
         // "status": "ok",
         // "totalResults": 36,
@@ -288,7 +294,7 @@ export default function NewsPageComp(): JSX.Element {
         // ]
         // }
 
-        data.articles.map((article: Article, idx: number) => {
+        res.data.articles.map((article: Article, idx: number) => {
             // generate unique id to identify article
             let d = new Date();
             const id = d.getTime() + idx;
