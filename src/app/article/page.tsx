@@ -17,8 +17,10 @@ export default function DetailedArticle() {
     }
 
     useEffect(() => {
+        let article;
         const articleStr = localStorage.getItem('article');
-        const article = JSON.parse(articleStr);
+        if (articleStr)
+            article = JSON.parse(articleStr);
         const html =  `<h1>title: ${article ? article.title : ''}</h1>
         <p>description: ${article ? article.description : ''}</p>
         <p>content: ${article ? article.content : ''}</p>
