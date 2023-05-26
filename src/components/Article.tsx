@@ -17,7 +17,7 @@ export default function ArticleComp(props: Props): JSX.Element {
                 <img className="h-48 w-full object-cover md:h-full md:w-48" src="/img/building.jpg" alt="article image" />
                 </div>
                 <div className="p-8">
-                    <a href="javascript:;" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline" onClick={() => router.push(`/article?id=${id}`)}>{ source.name }</a>
+                    <a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline" onClick={() => router.push(`/article?id=${id}`)}>{ source.name }</a>
                     <p className="mt-2 text-slate-500">{ title }</p>
                 </div>
             </div>
