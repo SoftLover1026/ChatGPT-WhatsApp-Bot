@@ -17,14 +17,17 @@ export interface Article {
 export interface ArticlesModel {
     articles: Article[];
     addArticle: Action<ArticlesModel, Article>
-    // removeArticle: Action<ArticlesModel, { id: number }>;
+    removeArticle: Action<ArticlesModel>;
 }
 
 const articlesModel: ArticlesModel = {
     articles: [],
     addArticle: action((state, payload) => {
-    state.articles.push(payload);
-  }),
+        state.articles.push(payload);
+    }),
+    removeArticle: action((state) => {
+        state.articles = []
+    })
 
 };
 
