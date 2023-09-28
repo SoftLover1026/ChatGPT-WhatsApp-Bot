@@ -1,7 +1,4 @@
-# Create WhatApp Chatbot💬 using ChatGPT, Flask, and EC2
-
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)                 
-[![Python 3.8](https://img.shields.io/badge/python-3.8-blue.svg)](https://www.python.org/downloads/release/python-360/)   
+# ChatGPT WhatsApp Chatbot using ChatGPT, Flask, and EC2
 
 
 ## We have used:
@@ -36,11 +33,3 @@
   ``` 
     python3 main.py
   ```
-
-- For more explanation of this project see the tutorial on Machine Learning Hub YouTube channel.
-
-
-## Just follow☝️ me and Star⭐ my repository 
-
-# [Buy me a Coffee☕](https://www.buymeacoffee.com/spidy20)
-## [Donate me on PayPal(It will inspire me to do more projects)](https://www.paypal.me/spidy1820)
