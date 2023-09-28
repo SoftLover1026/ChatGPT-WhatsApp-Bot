@@ -13,7 +13,7 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 # Define a function to generate answers using GPT-3
 def generate_answer(question):
-    model_engine = "text-davinci"
+    model_engine = "text-davinci-002"
     prompt = (f"Q: {question}\n"
               "A:")
 
@@ -42,7 +42,6 @@ def chatgpt():
     msg = bot_resp.message()
     msg.body(answer)
     return str(bot_resp)
-
 
 
 # Run the Flask app
